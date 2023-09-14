@@ -40,13 +40,13 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
   deploy-approval-1:
-    name: Deploy approval
+    name: Deploy approval one
     runs-on: ubuntu-latest
     environment: ${{inputs.env}}
     steps:
       - name: Run a multi-line script
         run: |
-          echo deploy to test approval
+          echo deploy to test approval ${{inputs.env}}
           echo !!!!!!!!!!!!! the end !!!!!!!!!!!!!!!!!
   deploy-qa:
     name: Deploy to test-approval
