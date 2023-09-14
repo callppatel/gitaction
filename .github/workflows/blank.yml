@@ -37,8 +37,7 @@ jobs:
   deploy-approval:
     name: Deploy approval
     runs-on: ubuntu-latest
-    environment: 
-      name: test-approval
+    environment: test-approval
     steps:
       - name: Run a multi-line script
         run: |
