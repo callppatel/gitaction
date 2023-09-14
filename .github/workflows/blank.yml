@@ -5,10 +5,10 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  #push:
+  #  branches: [ "main" ]
+  #pull_request:
+  #  branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -42,11 +42,12 @@ jobs:
   deploy-approval-1:
     name: Deploy approval one
     runs-on: ubuntu-latest
-    environment: ${{inputs.env}}
+    environment: ${{ github.event.inputs.environment }}
     steps:
       - name: Run a multi-line script
         run: |
           echo deploy to test approval ${{inputs.env}}
+          echo environment name ${{ github.event.inputs.environment }}
           echo !!!!!!!!!!!!! the end !!!!!!!!!!!!!!!!!
   deploy-qa:
     name: Deploy to test-approval
